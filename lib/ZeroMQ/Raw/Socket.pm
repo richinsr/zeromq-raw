@@ -1,4 +1,4 @@
-package ZeroMQ::Raw::Socket;
+package AnyEvent::ZeroMQ::Raw::Socket;
 use strict;
 use warnings;
 use Carp qw(confess);

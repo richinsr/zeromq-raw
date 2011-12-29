@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 use ExtUtils::Depends;
 
 mkdir 'build';
-my $pkg = ExtUtils::Depends->new( 'ZeroMQ::Raw', 'XS::Object::Magic' );
+my $pkg = ExtUtils::Depends->new( 'AnyEvent::ZeroMQ::Raw', 'XS::Object::Magic' );
 
 # if you need to set -I or -L, do it via the arguments INC and LIBS:
 #
@@ -54,7 +54,7 @@ WriteMakefile(
   },
   DISTNAME => 'ZeroMQ-Raw',
   LICENSE => 'lgpl',
-  NAME => 'ZeroMQ::Raw',
+  NAME => 'AnyEvent::ZeroMQ::Raw',
   PREREQ_PM => {
       'XS::Object::Magic' => 0,
   },

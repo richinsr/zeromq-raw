@@ -1,4 +1,4 @@
-package ZeroMQ::Raw::Constants;
+package AnyEvent::ZeroMQ::Raw::Constants;
 use strict;
 use warnings;
 

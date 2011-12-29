@@ -3,13 +3,13 @@ use warnings;
 use Test::More;
 use Test::Exception;
 
-use ZeroMQ::Raw;
+use AnyEvent::ZeroMQ::Raw;
 
 # new empty message, will get buffer at a later date
 {
     my $empty;
     lives_ok {
-        $empty = ZeroMQ::Raw::Message->new;
+        $empty = AnyEvent::ZeroMQ::Raw::Message->new;
     } 'creating empty message lives';
 
     ok $empty->is_allocated, 'allocated the underlying msg object ok';
@@ -25,7 +25,7 @@ use ZeroMQ::Raw;
 {
     my $from_size;
     lives_ok {
-        $from_size = ZeroMQ::Raw::Message->new_from_size(1024);
+        $from_size = AnyEvent::ZeroMQ::Raw::Message->new_from_size(1024);
     } 'allocating message of size 1024 works';
 
     ok $from_size->is_allocated, 'allocated ok';
@@ -42,7 +42,7 @@ use ZeroMQ::Raw;
 
     my $from_scalar;
     lives_ok {
-        $from_scalar = ZeroMQ::Raw::Message->new_from_scalar($scalar);
+        $from_scalar = AnyEvent::ZeroMQ::Raw::Message->new_from_scalar($scalar);
     } 'creating msg from scalar works';
 
     ok $from_scalar->is_allocated, 'allocated ok';
@@ -51,7 +51,7 @@ use ZeroMQ::Raw;
 }
 
 {
-    my $boring = ZeroMQ::Raw::Message->_new;
+    my $boring = AnyEvent::ZeroMQ::Raw::Message->_new;
     ok !$boring->is_allocated, 'not allocated';
     lives_ok { $boring->init };
 
@@ -74,7 +74,7 @@ use ZeroMQ::Raw;
     ok utf8::is_utf8($utf8), 'got some utf8';
     my $msg;
     throws_ok {
-        $msg = ZeroMQ::Raw::Message->new_from_scalar($utf8);
+        $msg = AnyEvent::ZeroMQ::Raw::Message->new_from_scalar($utf8);
     } qr/wide character/i, 'wide character => death';
     ok !$msg;
 }
@@ -83,7 +83,7 @@ use ZeroMQ::Raw;
     my $numb3r = 3;
     my $msg;
     throws_ok {
-        $msg = ZeroMQ::Raw::Message->new_from_scalar($numb3r);
+        $msg = AnyEvent::ZeroMQ::Raw::Message->new_from_scalar($numb3r);
     } qr/SvPV/i, 'SvIV => nope.';
     ok !$msg
 };

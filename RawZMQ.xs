@@ -7,7 +7,7 @@
 #include <zmq.h>
 #include "zmqxs.h"
 
-MODULE = ZeroMQ::Raw	PACKAGE = ZeroMQ::Raw   PREFIX = zmq_
+MODULE = AnyEvent::ZeroMQ::Raw	PACKAGE = AnyEvent::ZeroMQ::Raw   PREFIX = zmq_
 PROTOTYPES: DISABLE
 
 void
@@ -21,7 +21,7 @@ zmq_version()
         PUSHs(sv_2mortal(newSViv(minor)));
         PUSHs(sv_2mortal(newSViv(patch)));
 
-MODULE = ZeroMQ::Raw	PACKAGE = ZeroMQ::Raw::Context	PREFIX = zmq_
+MODULE = AnyEvent::ZeroMQ::Raw	PACKAGE = AnyEvent::ZeroMQ::Raw::Context	PREFIX = zmq_
 
 void
 zmq_init(SV *self, int threads)
@@ -61,7 +61,7 @@ zmq_has_valid_context(SV *self)
     OUTPUT:
         RETVAL
 
-MODULE = ZeroMQ::Raw	PACKAGE = ZeroMQ::Raw::Message	PREFIX = zmq_msg_
+MODULE = AnyEvent::ZeroMQ::Raw	PACKAGE = AnyEvent::ZeroMQ::Raw::Message	PREFIX = zmq_msg_
 
 void
 zmq_msg_init(SV *self)
@@ -131,7 +131,7 @@ zmq_msg_is_allocated(SV *self)
     OUTPUT:
         RETVAL
 
-MODULE = ZeroMQ::Raw	PACKAGE = ZeroMQ::Raw::Socket	PREFIX = zmq_
+MODULE = AnyEvent::ZeroMQ::Raw	PACKAGE = AnyEvent::ZeroMQ::Raw::Socket	PREFIX = zmq_
 
 zmq_sock_err
 zmq_init_socket(SV *self, zmq_ctx_t *context, int type)

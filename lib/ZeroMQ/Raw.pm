@@ -1,4 +1,4 @@
-package ZeroMQ::Raw;
+package AnyEvent::ZeroMQ::Raw;
 # ABSTRACT: ZeroMQ binding that tries to maintain a 1:1 correspondence with the C api
 use strict;
 use warnings;
@@ -8,11 +8,11 @@ use 5.008;
 
 our $VERSION = '0.01';
 
-XSLoader::load('ZeroMQ::Raw', $VERSION);
+XSLoader::load('AnyEvent::ZeroMQ::Raw', $VERSION);
 
-require ZeroMQ::Raw::Context;
-require ZeroMQ::Raw::Message;
-require ZeroMQ::Raw::Socket;
+require AnyEvent::ZeroMQ::Raw::Context;
+require AnyEvent::ZeroMQ::Raw::Message;
+require AnyEvent::ZeroMQ::Raw::Socket;
 
 1;
 
